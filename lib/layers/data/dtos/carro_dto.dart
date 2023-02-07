@@ -6,17 +6,23 @@ class CarroDto extends CarroEntity {
   double valorFinal;
 
   CarroDto(
-      {required this.placa, required this.quantidadePortas, required this.valorFinal})
+      {required this.placa,
+      required this.quantidadePortas,
+      required this.valorFinal})
       : super(placa: placa, qtdPortas: quantidadePortas, valor: valorFinal);
 
   Map toJson() {
-    return {'placa': placa, 'qtdPortas': quantidadePortas, 'valorFinal': valorFinal};
+    return {
+      'placa': placa,
+      'qtdPortas': quantidadePortas,
+      'valorFinal': valorFinal
+    };
   }
 
-  CarroDto fromJson(Map map) {
+  static CarroDto fromJson(Map map) {
     return CarroDto(
         placa: map['placa'],
-        quantidadePortas: map['qtdPortas'],
+        quantidadePortas: map['quantidadeDePortas'],
         valorFinal: map['valorFinal']);
   }
 }
