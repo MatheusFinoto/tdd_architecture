@@ -3,7 +3,6 @@ import 'package:tdd_architecture/layers/data/datasources/local/get_carros_por_co
 import 'package:tdd_architecture/layers/data/repositories/get_carros_por_cor_repository_imp.dart';
 
 import 'package:tdd_architecture/layers/domain/entities/carro_entity.dart';
-import 'package:tdd_architecture/layers/domain/repositories/get_carros_por_cor_repository.dart';
 import 'package:tdd_architecture/layers/domain/usecases/get_carros_por_cor/get_carros_por_cor_usecase.dart';
 import 'package:tdd_architecture/layers/domain/usecases/get_carros_por_cor/get_carros_por_cor_usecase_imp.dart';
 
@@ -38,7 +37,7 @@ void main() {
         GetCarrosPorCorRepositoryImp(GetCarrosPorCorLocalDataSourceImp()));
     var resultado = useCase.call('verde');
 
-     late CarroEntity expected;
+    late CarroEntity expected;
 
     resultado.fold((l) => null, (r) => expected = r);
 
