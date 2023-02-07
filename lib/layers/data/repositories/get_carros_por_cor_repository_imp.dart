@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:tdd_architecture/layers/data/datasources/get_carros_por_cor_datasource.dart';
 
 import '../../domain/entities/carro_entity.dart';
@@ -9,9 +10,8 @@ class GetCarrosPorCorRepositoryImp implements GetCarrosPorCorRepository {
 
   GetCarrosPorCorRepositoryImp(this._carrosPorCorDataSource);
 
-
   @override
-  CarroEntity call(String cor) {
+  Either<Exception, CarroEntity> call(String cor) {
     return _carrosPorCorDataSource(cor);
   }
 }

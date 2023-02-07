@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:tdd_architecture/layers/domain/repositories/salvar_carro_favorito_repository.dart';
 
 import '../../entities/carro_entity.dart';
@@ -9,7 +10,7 @@ class SalvarCarroUseCaseImp implements SalvarCarroFavoritoUseCase {
   SalvarCarroUseCaseImp(this._salvarCarroFavoritoRepository);
 
   @override
-  Future<bool> call(CarroEntity carroEntity) async {
+  Future<Either<Exception, bool>> call(CarroEntity carroEntity) async {
     carroEntity.setLogica();
     return await _salvarCarroFavoritoRepository(carroEntity);
   }

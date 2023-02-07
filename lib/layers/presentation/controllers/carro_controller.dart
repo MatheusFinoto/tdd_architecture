@@ -7,12 +7,16 @@ class CarroController {
   final SalvarCarroFavoritoUseCase _salvarCarroFavoritoUseCase;
 
   CarroController(
-      this._getCarrosPorCorUseCase, this._salvarCarroFavoritoUseCase){getCarrosPorCor("vermelho");}
+      this._getCarrosPorCorUseCase, this._salvarCarroFavoritoUseCase) {
+    getCarrosPorCor("vermelho");
+  }
 
   late CarroEntity carro;
 
   getCarrosPorCor(String cor) {
-     carro = _getCarrosPorCorUseCase(cor);
+    var result = _getCarrosPorCorUseCase(cor);
+    result.fold(
+        (error) => print(error.toString()), (success) => carro = success);
   }
 
   salvarCarroFavorito(CarroEntity carro) async {
